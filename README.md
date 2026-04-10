@@ -35,6 +35,10 @@ cnn/
 
 ## Dataset Layout
 
+Dataset source:
+
+- Kaggle: [Dog VS CAT](https://www.kaggle.com/datasets/ahmedeko/dog-vs-cat)
+
 The notebook expects filenames in the raw `train/` folder to follow the common Kaggle Cats vs Dogs naming style:
 
 - `cat.0.jpg`, `cat.1.jpg`, ...
@@ -123,17 +127,49 @@ Install the project dependencies with:
 pip install -r requirements.txt
 ```
 
+If you want to download the dataset from Kaggle through the command line, also install the Kaggle CLI:
+
+```bash
+pip install kaggle
+```
+
+## Dataset Setup
+
+1. Create a Kaggle account and generate your API token from Kaggle account settings.
+2. Place `kaggle.json` in the default Kaggle location for your system.
+3. Download the dataset:
+
+```bash
+kaggle datasets download -d ahmedeko/dog-vs-cat
+```
+
+4. Extract the downloaded zip file into the project folder.
+5. Make sure the extracted dataset provides the raw image folders used by the notebook:
+
+```text
+train/
+test/
+```
+
+After that, the notebook will create the processed split automatically inside `data/`.
+
 ## How To Run
 
 1. Open the project folder.
-2. Start Jupyter:
+2. Install the dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+3. Start Jupyter:
 
 ```bash
 jupyter notebook
 ```
 
-3. Open `cat_vs_dogs_cnn_jupyter_fixed.ipynb`.
-4. Run the cells from top to bottom.
+4. Open `cat_vs_dogs_cnn_jupyter_fixed.ipynb`.
+5. Run the cells from top to bottom.
 
 The notebook will:
 
